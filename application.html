@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>application</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.60/jspdf.min.js"></script>
+</head>
+<body>
+<input type="text" id="name"  placeholder="enter your name..."  value="elon" >
+<input type="text" id="schoolName"  placeholder="enter your school name..."  value="Radiant Academy" >
+<input type="text" id="schoolAddress"  placeholder="enter your school address..."  value="Sector - 55, Noida" >
+<select id="salutate"  class="form-control" id="sel1" name="sellist1">
+<option disabled="disabled" >Choose one</option>
+<option>Respected</option>
+<option>Dear</option>
+<option>Honorable</option>
+</select>
+<select id="employer"  class="form-control" id="sel1" name="sellist1">
+<option disabled="disabled" >choose one</option>
+<option>Boss</option>
+<option>Sir</option>
+<option>Ma'am</option>
+<option>Manager</option>
+</select>
+<button onclick="apply()">Submit</button>
+
+<div id="pdfdiv">
+<p id="show" style="border:2px solid green; padding:5px" class="w3-container w3-display-container"  >
+<img class="w3-display-bottomright w3-image w3-grayscale-max" id="output" width="200" style="z-index:-1" />
+</p>
+</div>
+
+<pre id="format" style="display:none" >samar,
+dishs
+ skins
+ snskm   sisksks
+ n sksnsks  knight sk j   sj k  
+  द ल द दबद लडफःडअः sjndx k sk</pre>
+<script type="text/javascript">
+function apply() {
+  var name = document.getElementById("name").value;
+  var salutate = document.getElementById("salutate").value;
+  var category = document.getElementById("employer").value;
+  var schoolName = document.getElementById("schoolName").value;
+  var schoolAddress = document.getElementById("schoolAddress").value;
+  var greet = "Welcome ";
+  var hwdo = "How was your day!";
+  var comb = greet + name + "! " + hwdo;
+  var schl = "To<br>The Principal,<br>" + schoolName + "<br>" + schoolAddress + ".<br><br>";
+  var d = new Date();
+  var date = "<b>Date : </b>" + d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() + "<br><br>";
+  var salutation = salutate + " " + category + ",<br>"
+  var subject = "<b>Subject : </b> Leave Application for School Due to Fever<br><br>";
+  var content = " I want you to know that I have been having a high fever for the past two days.\
+  I ate something unhealthy that upset my stomach and induced severe food poisoning that led me to elevated temperature and agitation.\
+  I couldn’t stand up and do anything on my own. This causes severe headaches and infirmity.\
+  To recover from the extreme temperature, I am taking proper medicine.\
+  The medicines prescribed to me by the doctor are of high dosage, which makes me tired and drowsy.\
+  It can take more than two days to recuperate. I have to take a two-day leave to get into better health and resume my job again.\
+  I should add the medical leave to the prescription.<br><br>";
+  var conclusion = "Thanking you!<br>Your obediently<br>" + name + "<br><b>class : </b> X - A";
+  document.getElementById("show").innerHTML = schl + date + subject + salutation + content + conclusion;
+}
+</script>
+<p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+<p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
+
+</body>
+</html>

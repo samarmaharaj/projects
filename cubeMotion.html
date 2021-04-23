@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="Learn how to make 3D cube using just HTML And CSS by @samarmaharaj" />
+    <title>3D Cube</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body
+    {
+    background-color : #bbddee;
+    }
+    div
+    {
+      width : 60vw;
+      height : 60vw;
+      perspective :preserve-3D;
+      perspective-origin:center;
+      position : absolute ;
+      border : 2px solid white ;
+      background :transparent;
+      color : white;
+      font-size : 60vw ;
+      display : flex;
+      align-items : center;
+      justify-content : center ;
+      animation : move 5s 2s 2;
+    }
+    
+    @keyframes move
+    {
+      0%{transform:rotateY(180deg) translate(50px, 5px)}
+      10%{transform:rotateY(-180deg) translate(50px, 50px)}
+      20%{transform:skewY(180deg) translate(50px, 0px)}
+      30%{transform:scale(2) translate(50px, 5px)}
+      40%{transform:rotate(-180deg) translate(50px, 50px)}
+      50%{transform:rotate(180deg) translate(50px, 5px)}
+      60%{transform:rotateZ(180deg) translate(50px, 5px)}
+      70%{transform:scale(0.5) translate(50px, 50px)}
+      80%{transform:rotate(180deg) translate(50px, 5px)}
+      90%{transform:rotate(180deg) translate(50px, 5px)}
+
+    }
+    
+    div#one
+    {
+    transform : rotateY(40deg) skewY(18deg);
+    background : linear-gradient(to bottom,rgba(255,0,0,0.5), rgba(255,0,0,.4)) ;
+    left:-0.125vw;
+    top : 50vw;
+    }
+    div#two
+    {
+    transform : rotateY(-50deg) skewY(-21deg);
+    background : linear-gradient(to top right,rgba(255,0,0,0.5), black) ;
+    top : 48vw;
+    left : 43vw;
+    }
+
+    div#four
+    {
+    transform : rotateX(60deg) rotateZ(40deg);
+    background : linear-gradient(to top,rgba(255,0,0,2), rgba(0,0,0,2)) ;
+    top : 70vw;
+    left : 19vw;
+    }
+    div#five
+    {
+    transform : rotateY(40deg) skewY(18deg);
+    background : linear-gradient(to bottom,rgba(255,0,0,5), black) ;
+    left:38vw;
+    top : 28vw;
+    }
+    div#six
+    {
+    transform : rotateY(-50deg) skewY(-21deg);
+    background : linear-gradient(to top right,rgba(255,0,0,1), black) ;
+    top : 30vw;
+    left : -5vw;
+    }
+    div#three
+    {
+    transform : rotateX(60deg) rotateZ(40deg);
+    background-color : rgba(0,0,0,0.8) ;
+    top : 8vw;
+    left : 19vw;
+    }
+    </style>
+</head>
+<body>
+    <h1>samar</h1>
+    <div id="six" >
+    6
+    </div>
+    <div id="five" >
+    5
+    </div>
+    <div id="four" >
+    4
+    </div>
+    <div id="two" >
+    2
+    </div>
+    <div id="one" >
+    1
+    </div>
+    <div id="three" >
+    3
+    </div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inspirational Quotes</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="We believe that even a single quotes can change one's whole life!" />
+    <meta name="keywords" content="samarmaharaj, inspirational quotes, achievements,  zin Quotes, meditation" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script type="text/javascript" src="https://samarmaharaj.github.io/trywebpage/json.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap" rel="stylesheet">
+    <style type="text/css">
+    body, h1, h2, h3, h4, h5, h6
+    {
+      font-family : 'kalam', cursive, serif;
+    }
+    *{box-sizing : border-box;}
+    
+    body
+    {
+      background-color : #ff0000;
+      background : linear-gradient(to top, red, yellow, brown,  white, pink, indigo, blue, cyan, purple);
+      padding-bottom : 12.5vw; 
+    }
+    
+    .container
+    {
+      max-width : 90vw;
+      margin : 0 auto;
+    }
+    
+    .blog-post
+    {
+      margin : 20px 0px;
+      padding : 10px;
+      box-shadow : 0px 1px 2px rgba(50, 50, 50, 0.1), 0px 2px 5px rgba(60, 60, 60, 0.1);
+      background-color : #fff;
+      border-radius : 0.5vw;
+    }
+
+    h2 .blog-title
+    {
+      color : grey;
+      margin : 0px;
+    }
+    .user-info
+    {
+      display : flex;
+      text-align : center;
+    }
+    .user-info img
+    {
+      border-radius : 50%;
+      margin-left : 1.25vw;
+      width : 12.5vw;
+      height : 12.5vw;
+    }
+    .user-info span
+    {
+      margin : 0vw 0vw 0vw 1.5vw;
+      font-size : 20px;
+      text-align : center ;
+      align-items : center;
+      justify-content : center ;
+    }
+    .loader
+    {
+      display : flex;
+      transition : 0.5s;
+      opacity : 0;
+      margin-top : 5vw;
+      padding : 0;
+      align-items : center;
+      justify-content : center;
+    }
+    .circle1
+    {
+      background-color : yellow;
+      height : 3vw;
+      width : 3vw;
+      margin : 1.25vw;
+      border-radius : 50%;
+      animation : jump1 .6s linear infinite;
+    }
+    
+    .circle1:nth-of-type(2) 
+    {
+      animation-delay: .1s;
+    } 
+    
+    .circle1:nth-of-type(3)
+    {
+      animation-delay: .2s;
+    } 
+    
+    @keyframes jump1
+    {
+      0%, 50%, 100%{ transform : translateY(0px);}
+      25%{ transform : translateY(-7.5vw);}
+    }
+    .loader.show
+    {
+      opacity : 1;
+    }
+    </style>
+</head>
+<body>
+    <div class="container" id="container" >
+        <h1 style="color : white;" >Whole world is sharing inspirational quotes with you</h1>
+        <!--div class="blog-post" >
+            <h2 class="blog-title" >Blog Title</h2>
+            <p class="blog-text" >Samar Maharaj has created stick to the moon and the word plural verb is written in the</p>
+            <div class="user-info" >
+                <img src="https://picsum.photos/400" alt="pic" >
+                <span>Recta pos</span>
+            </div>
+        </div-->
+    </div>
+    
+    <p id="demo" ></p>
+
+    <div class="loader" >
+        <div class="circle1" ></div>
+        <div class="circle1" ></div>
+        <div class="circle1" ></div>
+    </div>
+
+    
+    <script type="text/javascript">
+      const container = document.getElementById("container");
+      const loader = document.querySelector(".loader");
+      const web = "https://jsonplaceholder.typicode.com/posts";
+              var background = document.getElementsByClassName("blog-post");
+              var b = 0;
+      
+      getPost();
+
+      window.addEventListener("scroll", () => {
+        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+        console.log( { scrollTop, scrollHeight, clientHeight } );
+        if(clientHeight + scrollTop >= scrollHeight - 5){
+          showLoader();
+        }
+      });
+      
+      function showLoader() {
+        loader.classList.add("show");
+        setTimeout(getPost, 1000);
+      }
+
+      async function getPost() {
+        //const postResponse = await fetch(`https://zenquotes.io/api/quotes`);
+        //const postData = await postResponse.json();
+        for ( a = 0; a < 7; a++) {
+        const userResponse = await fetch('https://randomuser.me/api');
+        const userData = await userResponse.json();
+        const data = { post : JSON.parse(quotes), user : userData.results[0] };
+        addDataToDom(data);
+        }
+      }
+      function addDataToDom(data) {
+       var a = Math.floor(Math.random() * 350);
+        const postElement = document.createElement("div");
+        postElement.classList.add("blog-post");
+        postElement.innerHTML = `
+          <h2 class="blog-title">
+          ${data.post[a].h}
+          </h2>
+          <div class="user-info">
+            <img src="${data.user.picture.large}" alt="${data.user.name.first}" />
+            <span> ${data.user.name.first} ${data.user.name.last}</span>
+            </div>
+        `;
+        container.appendChild(postElement);
+        loader.classList.remove("show");
+        //console.log()
+       // back("https://source.unsplash.com/random");
+      } 
+      
+     /* function back(url) {
+        background[b-1].style.background = "url(\'"+ url +"\')";
+      }*/
+    </script>
+</body>
+</html>

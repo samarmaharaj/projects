@@ -1,0 +1,215 @@
+:root {
+  /* font-families */
+  --ff-serif: "Bellefair", serif;
+  --ff-sans-cond: "Barlow Condensed", sans-serif;
+  --ff-sans-normal: "Barlow", sans-serif;
+  /* colors */
+  --clr-dark: 230 35% 7%;
+  --clr-light: 231 77% 90%;
+  --clr-white: 0 0% 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+/* set up the body */
+body {
+  font-family: var(--ff-sans-normal);
+  font-size: 1.3rem;
+  color: hsl(var(--clr-white));
+  background-color: hsl(var(--clr-dark));
+  line-height: 1.5;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
+
+  overflow-x: hidden;
+}
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+.container > *:where(:not(:first-child)) {
+  margin-top: 2rem;
+}
+/* colors */
+
+.bg-dark {
+  background-color: hsl(var(--clr-dark));
+}
+.bg-accent {
+  background-color: hsl(var(--clr-light));
+}
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.text-dark {
+  color: hsl(var(--clr-dark));
+}
+.text-accent {
+  color: hsl(var(--clr-light));
+}
+.text-white {
+  color: hsl(var(--clr-white));
+}
+
+/* typography */
+
+.ff-serif {
+  font-family: var(--ff-serif);
+}
+.ff-sans-cond {
+  font-family: var(--ff-sans-cond);
+}
+.ff-sans-normal {
+  font-family: var(--ff-sans-normal);
+}
+
+.letter-spacing-1 {
+  letter-spacing: 4.75px;
+}
+.letter-spacing-2 {
+  letter-spacing: 2.7px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3rem;
+}
+/* .large-button {
+    font-size: 2rem;
+    position: relative;
+    z-index: 1;
+    display: inline-grid;
+    place-items: center;
+    padding: 0 2em;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    text-decoration: none; */
+
+.large-button {
+  font-size: 2rem;
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 2em;
+  border-radius: 0.1em; /* Adjust the border-radius to control the roundness of the corners */
+  /* Remove aspect-ratio property if it's forcing a square shape */
+  aspect-ratio: unset; /* or simply remove this line if you don't need aspect ratio constraint */
+  text-decoration: none;
+}
+
+button {
+  background-color: none;
+  border: none;
+}
+/* .large-button::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: hsl( var(--clr-white) / .1);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 500ms linear, transform 750ms ease-in-out;
+} */
+
+.large-button:hover::after,
+.large-button:focus::after {
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+.input-container {
+  display: flex;
+  gap: 2rem;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 3rem;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: hsl(var(--clr-dark));
+}
+
+.modal-content {
+  background-color: hsl(var(--clr-light));
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  color: hsl(var(--clr-dark));
+  /* border: 1px solid #888; */
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+.modal-text {
+  font-family: var(--ff-sans-normal);
+  font-size: 1.3rem;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  max-width: 50px; /* Adjust the maximum width of the image */
+  max-height: 50px; /* Adjust the maximum height of the image */
+}
+.logo1 img {
+  max-width: 80px; /* Adjust the maximum width of the image */
+  max-height: 80px; /* Adjust the maximum height of the image */
+}
+
+.flex-container {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+}
+h1.relative {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}

@@ -46,3 +46,27 @@ btn.addEventListener("click", function() {
     }
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  const numStars = 100;
+  const starsContainer = document.getElementById("stars");
+
+  // Create stars
+  for (let i = 0; i < numStars; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      starsContainer.appendChild(star);
+
+      // Randomize position
+      const xy = Math.random() * 100;
+      const duration = Math.random() * 5 + 2;
+      const delay = Math.random() * 2;
+
+      // Apply styles
+      star.style.width = star.style.height = `${Math.random() * 3}px`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${duration}s`;
+      star.style.animationDelay = `${delay}s`;
+  }
+});
